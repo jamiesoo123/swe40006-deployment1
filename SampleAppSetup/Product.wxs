@@ -3,10 +3,10 @@
 
 	<Product
 		Id="*"
-		Name="SampleApp Setup"
+		Name="CalculatorApp"
 		Language="1033"
 		Version="1.0.0.0"
-		Manufacturer="SwinburneStudent"
+		Manufacturer="JamieSooSwinburne"
 		UpgradeCode="0faa5a1e-fd31-4808-bda8-d17c382eaaf1">
 
 		<Package
