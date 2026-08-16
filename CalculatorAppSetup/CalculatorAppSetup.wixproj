@@ -6,7 +6,7 @@
     <ProductVersion>3.10</ProductVersion>
     <ProjectGuid>46b7a312-15a4-447a-8647-e8f24199a6e3</ProjectGuid>
     <SchemaVersion>2.0</SchemaVersion>
-    <OutputName>SampleAppSetup</OutputName>
+    <OutputName>CalculatorAppSetup</OutputName>
     <OutputType>Package</OutputType>
     <Name>CalculatorAppSetup</Name>
   </PropertyGroup>
