@@ -18,27 +18,57 @@
 
 		<Directory Id="TARGETDIR" Name="SourceDir">
 			<Directory Id="ProgramFilesFolder">
-				<Directory Id="INSTALLFOLDER" Name="SampleApp" />
+				<Directory Id="INSTALLFOLDER" Name="CalculatorApp" />
 			</Directory>
 		</Directory>
 
 		<DirectoryRef Id="INSTALLFOLDER">
+
 			<Component
 				Id="MainExecutable"
 				Guid="39723357-A119-466F-BC09-24CF4C80FFC6">
+
 				<File
-					Id="SampleAppEXE"
-					Source="$(var.SampleApp.TargetPath)"
+					Id="CalculatorAppEXE"
+					Source="$(var.CalculatorApp.TargetPath)"
 					KeyPath="yes" />
+
 			</Component>
+
+			<Component
+				Id="CalculatorOperationsComponent"
+				Guid="B8D0605B-351C-46F2-B822-41B63566BB05">
+
+				<File
+					Id="CalculatorOperationsDLL"
+					Source="$(var.CalculatorApp.TargetDir)CalculatorOperations.dll"
+					KeyPath="yes" />
+
+			</Component>
+
+			<Component
+				Id="InputValidationComponent"
+				Guid="1D6A81AA-2ED7-43A8-AA6F-0D6EE55E5F97">
+
+				<File
+					Id="InputValidationDLL"
+					Source="$(var.CalculatorApp.TargetDir)InputValidation.dll"
+					KeyPath="yes" />
+
+			</Component>
+
 		</DirectoryRef>
-		
+
 		<Feature
 			Id="ProductFeature"
-			Title="SampleAppSetup"
+			Title="CalculatorApp"
 			Level="1">
+
 			<ComponentRef Id="MainExecutable" />
+			<ComponentRef Id="CalculatorOperationsComponent" />
+			<ComponentRef Id="InputValidationComponent" />
+
 		</Feature>
+
 	</Product>
 </Wix>
-

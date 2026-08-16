@@ -49,5 +49,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CalculatorOperations\CalculatorOperations.csproj">
+      <Project>{7d0f0201-bbd4-4351-bb61-d0bbc43d0480}</Project>
+      <Name>CalculatorOperations</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InputValidation\InputValidation.csproj">
+      <Project>{1dd4a292-0403-47ea-a7dc-f9397daea0bb}</Project>
+      <Name>InputValidation</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

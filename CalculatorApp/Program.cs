@@ -1,6 +1,8 @@
 ﻿using System;
+using CalculatorOperations;
+using InputValidation;
 
-namespace SampleApp
+namespace CalculatorApp
 {
     class Program
     {
@@ -18,27 +20,27 @@ namespace SampleApp
 
                 string choice = Console.ReadLine();
 
+                if (!Validator.IsValidChoice(choice))
+                {
+                    Console.WriteLine("Invalid choice. Please enter a number from 1 to 5.");
+                    Console.WriteLine();
+                    continue;
+                }
+
                 if (choice == "5")
                 {
                     Console.WriteLine("Calculator closed.");
                     break;
                 }
 
-                if (choice != "1" &&
-                    choice != "2" &&
-                    choice != "3" &&
-                    choice != "4")
-                {
-                    Console.WriteLine("Invalid choice. Please enter a number from 1 to 5.\n");
-                    continue;
-                }
-
                 double number1;
+
                 while (true)
                 {
                     Console.Write("Enter first number: ");
+                    string input = Console.ReadLine();
 
-                    if (double.TryParse(Console.ReadLine(), out number1))
+                    if (Validator.IsValidNumber(input, out number1))
                     {
                         break;
                     }
@@ -47,11 +49,13 @@ namespace SampleApp
                 }
 
                 double number2;
+
                 while (true)
                 {
                     Console.Write("Enter second number: ");
+                    string input = Console.ReadLine();
 
-                    if (double.TryParse(Console.ReadLine(), out number2))
+                    if (Validator.IsValidNumber(input, out number2))
                     {
                         break;
                     }
@@ -59,41 +63,38 @@ namespace SampleApp
                     Console.WriteLine("Invalid input. Please enter a valid number.");
                 }
 
-                double result = 0;
-                bool validCalculation = true;
+                double result;
 
                 switch (choice)
                 {
                     case "1":
-                        result = number1 + number2;
+                        result = Calculator.Add(number1, number2);
                         break;
 
                     case "2":
-                        result = number1 - number2;
+                        result = Calculator.Subtract(number1, number2);
                         break;
 
                     case "3":
-                        result = number1 * number2;
+                        result = Calculator.Multiply(number1, number2);
                         break;
 
                     case "4":
                         if (number2 == 0)
                         {
                             Console.WriteLine("Cannot divide by zero.");
-                            validCalculation = false;
+                            Console.WriteLine();
+                            continue;
                         }
-                        else
-                        {
-                            result = number1 / number2;
-                        }
+
+                        result = Calculator.Divide(number1, number2);
                         break;
+
+                    default:
+                        continue;
                 }
 
-                if (validCalculation)
-                {
-                    Console.WriteLine("Result: " + result);
-                }
-
+                Console.WriteLine("Result: " + result);
                 Console.WriteLine();
             }
 

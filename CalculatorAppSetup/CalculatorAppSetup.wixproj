@@ -8,6 +8,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <OutputName>SampleAppSetup</OutputName>
     <OutputType>Package</OutputType>
+    <Name>CalculatorAppSetup</Name>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <OutputPath>bin\$(Configuration)\</OutputPath>
@@ -22,9 +23,25 @@
     <Compile Include="Product.wxs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SampleApp\SampleApp.csproj">
-      <Name>SampleApp</Name>
+    <ProjectReference Include="..\CalculatorApp\CalculatorApp.csproj">
+      <Name>CalculatorApp</Name>
       <Project>{bda030cc-318d-4e56-a984-b614f13f5e93}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\CalculatorOperations\CalculatorOperations.csproj">
+      <Name>CalculatorOperations</Name>
+      <Project>{7d0f0201-bbd4-4351-bb61-d0bbc43d0480}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\InputValidation\InputValidation.csproj">
+      <Name>InputValidation</Name>
+      <Project>{1dd4a292-0403-47ea-a7dc-f9397daea0bb}</Project>
       <Private>True</Private>
       <DoNotHarvest>True</DoNotHarvest>
       <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
